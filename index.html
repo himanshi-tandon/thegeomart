@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo E-Commerce | Home</title>
+  <script src="js/dataLayer.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 24px; max-width: 900px; margin: auto; }
+    a.button { display:inline-block; padding:10px 14px; background:#0366d6; color:#fff; text-decoration:none; border-radius:6px; }
+    .card { border:1px solid #ddd; padding:12px; border-radius:8px; margin-bottom:12px; }
+  </style>
+</head>
+<body>
+  <h1>Demo E-Commerce</h1>
+  <p>Shop our featured products!</p>
+  <div class="card">
+    <h2>Apple iPhone 15</h2>
+    <p>Category: Mobile Phones | Price: ₹79,999</p>
+    <a class="button" href="product.html">View Product</a>
+  </div>
+
+  <script>
+    window.digitalData = {
+      page: { pageName: "Home", siteSection: "Home", pageType: "Landing" },
+      user: { loginStatus: "loggedOut" },
+      event: {}
+    };
+    console.log("digitalData (home):", window.digitalData);
+  </script>
+</body>
+</html>

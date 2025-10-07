@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo E-Commerce | Product</title>
+  <script src="js/dataLayer.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 24px; max-width: 900px; margin: auto; }
+    button { padding:10px 14px; border-radius:6px; border:0; background:#28a745; color:white; cursor:pointer; }
+    .meta { color:#555; margin-bottom:12px; }
+  </style>
+</head>
+<body>
+  <h1>Apple iPhone 15</h1>
+  <p class="meta">Category: Mobile Phones • Price: ₹79,999</p>
+  <button id="addToCart">Add to Cart</button>
+
+  <script>
+    window.digitalData = {
+      page: { pageName: "Product Detail", siteSection: "Electronics", pageType: "Product Detail" },
+      user: { loginStatus: "loggedIn", customerID: "CUST12345" },
+      product: { productID: "PROD101", productName: "Apple iPhone 15", category: "Mobile Phones", price: 79999 },
+      cart: { cartID: "", items: [], totalValue: 0 },
+      event: {}
+    };
+
+    document.getElementById("addToCart").addEventListener("click", function() {
+      const p = window.digitalData.product;
+      window.digitalData.cart.items.push({ id: p.productID, name: p.productName, price: p.price, quantity: 1 });
+      window.digitalData.cart.totalValue = window.digitalData.cart.items.reduce((s,i)=>s+i.price*i.quantity,0);
+      window.digitalData.event = { eventName: "addToCart", eventAction: "click", eventLabel: "Add to Cart Button" };
+      console.log("Add to Cart event:", window.digitalData);
+      alert("Added to cart! Check console for digitalData.");
+    });
+  </script>
+</body>
+</html>
